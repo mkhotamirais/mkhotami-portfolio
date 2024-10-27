@@ -1,6 +1,7 @@
 import { projects } from "@/lib/projects";
 import { Button } from "./ui/button";
 import { Link } from "react-router-dom";
+import ProjectItem from "./ItemsProjectHero";
 
 export default function HeroRight() {
   return (
@@ -12,19 +13,7 @@ export default function HeroRight() {
         {projects
           .filter((item) => item.imagePath)
           .map((item, i) => (
-            <div key={i} className="relative group hover:scale-105 transition">
-              <div className="scale-0 group-hover:scale-100 transition absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-black/50 *:text-white flex gap-4">
-                <Button variant={"link"} size="sm">
-                  Detail
-                </Button>
-                <Button variant={"link"} size="sm">
-                  <a href={item.href} target="_blank" title="visit web">
-                    Visit
-                  </a>
-                </Button>
-              </div>
-              <img src={item.imagePath} alt={"halo semua"} className="rounded-lg" />
-            </div>
+            <ProjectItem key={i} item={item} />
           ))}
       </div>
       <div className="flex justify-center">

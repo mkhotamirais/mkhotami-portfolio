@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import { Button } from "./components/ui/button";
 import { LuHome } from "react-icons/lu";
 import { ModeToggle } from "./components/theme/ModeToggle";
+import ItemsProjectProjects from "./components/ItemsProjectProjects";
 
 export default function Projects() {
   const [cari, setCari] = useState("");
@@ -55,7 +56,7 @@ export default function Projects() {
                     <Badge
                       variant={selectedBadge.includes(item) ? "secondary" : "default"}
                       key={i}
-                      className="cursor-pointer"
+                      className="cursor-pointer lowercase"
                       onClick={onBadge}
                     >
                       {item}
@@ -76,23 +77,7 @@ export default function Projects() {
                 {/* content */}
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-2 mb-8">
                   {filteredProjects.map((item, i) => (
-                    <div key={i} className={`group relative overflow-hidden rounded-lg shadow-md shadow-primary/50`}>
-                      <div className="p-3 text-center">
-                        <Link to={item?.href ?? "#"}>
-                          <h3 className="font-semibold text-lg text-primary group-hover:underline">{item.title}</h3>
-                        </Link>
-                      </div>
-
-                      {/* view and visit */}
-                      <div className="z-10 absolute top-0 right-0 p-2 scale-0 group-hover:scale-100 transition flex gap-2">
-                        <Button size="sm">Detail</Button>
-                        <Button asChild size={"sm"}>
-                          <Link to={item.href ?? "#"} className="no-underline">
-                            Visit
-                          </Link>
-                        </Button>
-                      </div>
-                    </div>
+                    <ItemsProjectProjects key={i} item={item} />
                   ))}
                 </div>
 

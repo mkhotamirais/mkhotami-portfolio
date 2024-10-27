@@ -1,4 +1,12 @@
-export const projects = [
+export type Project = {
+  title: string;
+  href: string;
+  description: string;
+  tools: string[];
+  imagePath?: string;
+};
+
+export const projects: Project[] = [
   {
     title: "Saikindo",
     href: "https://saikindo.co.id",

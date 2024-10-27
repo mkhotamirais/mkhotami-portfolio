@@ -64,7 +64,7 @@ export default function NavBottom() {
               <LucideHome />
             </Link>
           </Button>
-          <ModeToggle />
+          <ModeToggle align="start" />
           {menu.map((item, i) => (
             <div key={i} className="relative">
               <Button variant="link" asChild className="capitalize">
