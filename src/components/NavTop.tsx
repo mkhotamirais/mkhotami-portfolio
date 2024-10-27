@@ -1,11 +1,10 @@
 import { menu } from "@/lib/menu";
-import { Link, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import { useScrollDirection } from "@/hooks/useScrollDirection";
-import { Button } from "./ui/button";
-import { LuHome } from "react-icons/lu";
 import { ModeToggle } from "./theme/ModeToggle";
+import HomeBtn from "./ui/HomeBtn";
 
 export default function NavTop() {
   const { scrollDirection } = useScrollDirection();
@@ -15,18 +14,18 @@ export default function NavTop() {
   const { hash } = location;
 
   return (
-    <header className="flex z-40 fixed h-20 w-full items-center justify-center">
+    <motion.header
+      initial={{ y: -200 }}
+      animate={{ y: 0 }}
+      className="flex z-40 fixed h-20 w-full items-center justify-center"
+    >
       <motion.div
         initial={{ y: 0 }}
         animate={{ y: scrollDirection === "up" ? "-200%" : 0, transition: { duration: 0.3 } }}
         className="absolute shadow-md rounded-full overflow-hidden"
       >
         <div className="hidden sm:flex items-center gap-1 p-1 bg-background z-50">
-          <Button asChild size="icon" variant="ghost" className="rounded-full">
-            <Link to="/" title="home">
-              <LuHome />
-            </Link>
-          </Button>
+          <HomeBtn />
           {menu
             .filter((item) => item !== "projects")
             .map((item, i) => (
@@ -71,6 +70,6 @@ export default function NavTop() {
           <ModeToggle />
         </div>
       </motion.div>
-    </header>
+    </motion.header>
   );
 }

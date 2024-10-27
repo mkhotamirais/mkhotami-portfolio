@@ -2,11 +2,10 @@ import { MouseEvent, useState } from "react";
 import { projects } from "./lib/projects";
 import { Input } from "./components/ui/input";
 import { Badge } from "./components/ui/badge";
-import { Link } from "react-router-dom";
 import { Button } from "./components/ui/button";
-import { LuHome } from "react-icons/lu";
 import { ModeToggle } from "./components/theme/ModeToggle";
 import ItemsProjectProjects from "./components/ItemsProjectProjects";
+import HomeBtn from "./components/ui/HomeBtn";
 
 export default function Projects() {
   const [cari, setCari] = useState("");
@@ -34,11 +33,7 @@ export default function Projects() {
           <div className="flex h-full justify-between items-center mb-4">
             <h2 className="my-0">Projects</h2>
             <div className="flex gap-2">
-              <Button asChild size="icon" variant="ghost" className="rounded-full">
-                <Link to="/" title="home">
-                  <LuHome className="text-primary" />
-                </Link>
-              </Button>
+              <HomeBtn />
               <ModeToggle />
             </div>
           </div>
