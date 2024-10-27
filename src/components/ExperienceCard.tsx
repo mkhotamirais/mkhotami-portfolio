@@ -33,7 +33,7 @@ export default function ExperienceCard() {
       {experiences.map(({ icon: Icon, title, by, place, year, description }, i) => (
         <div key={i} className="flex gap-4">
           <div className="p-4 bg-woven h-fit rounded-full border shadow-lg hidden lg:block">
-            <Icon />
+            <Icon className="text-primary size-6" />
           </div>
           <div className="w-full bg-woven border-l-4 border-blue-500 p-4 rounded-lg">
             <h3 className="mt-0">{title}</h3>

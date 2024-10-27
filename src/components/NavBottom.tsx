@@ -1,8 +1,10 @@
 import { Button } from "@/components/ui/button";
 import { menu } from "@/lib/menu";
+import { LucideHome } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { FaCaretLeft, FaCaretRight } from "react-icons/fa6";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
+import { ModeToggle } from "./theme/ModeToggle";
 
 export default function NavBottom() {
   const location = useLocation();
@@ -57,6 +59,12 @@ export default function NavBottom() {
 
         {/* menu */}
         <div ref={menuRef} className="menu flex overflow-x-scroll">
+          <Button asChild size="icon" variant="ghost" className="rounded-full min-w-10">
+            <Link to="/" title="home">
+              <LucideHome />
+            </Link>
+          </Button>
+          <ModeToggle />
           {menu.map((item, i) => (
             <div key={i} className="relative">
               <Button variant="link" asChild className="capitalize">

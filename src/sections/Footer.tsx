@@ -1,6 +1,6 @@
 export default function Footer() {
   return (
-    <footer className="bg-gray-900 text-white mb-16 sm:mb-0">
+    <footer className="bg-background border-t border-secondary mb-16 sm:mb-0">
       <div className="container h-16 flex items-center justify-center">
         <small>
           &copy; {new Date().getFullYear()}{" "}

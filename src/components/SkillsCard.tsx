@@ -2,7 +2,7 @@ import { Skill } from "@/lib/skills";
 
 export default function SkillsCard({ title, skills }: { title: string; skills: Skill[] }) {
   return (
-    <div className="p-4 shadow-xl rounded-xl">
+    <div className="p-4 shadow-xl rounded-xl bg-woven">
       <h3 className="mt-0">{title}</h3>
       <div className="flex flex-wrap justify-center gap-4">
         {skills
