@@ -27,7 +27,7 @@ export default function Projects() {
   };
 
   return (
-    <section className="py-4">
+    <section className="py-4 bg-secondary">
       <article className="prose min-w-full">
         <div className="container">
           <div className="flex h-full justify-between items-center mb-4">
@@ -44,7 +44,7 @@ export default function Projects() {
               <Button variant={"outline"} className="w-full mb-4 text-primary">
                 Skills
               </Button>
-              <div className="w-32 flex gap-1 flex-wrap justify-center h-[calc(100vh-9rem)] overflow-y-scroll">
+              <div className="w-32 ms:w-40 flex gap-1 flex-wrap justify-center h-[calc(100vh-9rem)] overflow-y-scroll bg-woven p-2 rounded">
                 {badges
                   ?.sort((a, b) => a.localeCompare(b))
                   .map((item, i) => (
@@ -66,11 +66,11 @@ export default function Projects() {
                 value={cari}
                 onChange={(e) => setCari(e.target.value)}
                 placeholder="Search project.."
-                className="bg-cyan-100/15 mb-4"
+                className="bg-white mb-4"
               />
               <div className="h-[calc(100vh-9rem)] overflow-y-scroll">
                 {/* content */}
-                <div className="grid grid-cols-1 lg:grid-cols-3 gap-2 mb-8">
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-2 mb-8 bg-woven">
                   {filteredProjects.map((item, i) => (
                     <ItemsProjectProjects key={i} item={item} />
                   ))}

@@ -52,18 +52,8 @@ export default function Skills() {
             {skillList.map(({ skills, title }, i) => (
               <motion.div
                 ref={skillRefs[i]}
-                // initial={{ opacity: 0 }}
-                // animate={
-                //   vArr[i]
-                //     ? { opacity: 1, y: 0, scale: 1, transition: { duration: 0.3 } }
-                //     : { opacity: 0, y: 100, scale: 0.8 }
-                // }
-                initial={{ opacity: 0, x: i % 2 === 0 ? -100 : 100 }} // start position based on index
-                animate={
-                  vArr[i]
-                    ? { opacity: 1, x: 0, transition: { duration: 0.5 } } // animate to center
-                    : { opacity: 0 }
-                }
+                initial={{ opacity: 0, x: i % 2 === 0 ? -100 : 100 }}
+                animate={vArr[i] ? { opacity: 1, x: 0, transition: { duration: 0.7 } } : { opacity: 0 }}
                 key={i}
                 className="bg-woven h-full rounded-xl shadow-xl p-4"
               >

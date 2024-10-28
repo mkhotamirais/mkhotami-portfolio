@@ -28,7 +28,7 @@ export default function HeroRight() {
         animate={{ x: 0, opacity: 1, transition: { delay: 1 } }}
         className="flex justify-center"
       >
-        <Button variant="link">
+        <Button variant={"outline"}>
           <Link to="/projects">View all projects</Link>
         </Button>
       </motion.div>
