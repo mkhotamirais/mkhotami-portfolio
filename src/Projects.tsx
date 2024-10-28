@@ -41,9 +41,7 @@ export default function Projects() {
           <div className="flex gap-2 lg:gap-2 items-start">
             {/* skills badges */}
             <div className="border-r pr-2">
-              <Button variant={"outline"} className="w-full mb-4 text-primary">
-                Skills
-              </Button>
+              <Button className="w-full mb-4 bg-primary">Skills</Button>
               <div className="w-32 ms:w-40 flex gap-1 flex-wrap justify-center h-[calc(100vh-9rem)] overflow-y-scroll bg-woven p-2 rounded">
                 {badges
                   ?.sort((a, b) => a.localeCompare(b))
