@@ -1,7 +1,8 @@
 import { SiGithub, SiLinkedin, SiGmail } from "react-icons/si";
 import { Button } from "./ui/button";
 import HeroCvBtn from "./HeroCvBtn";
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
 
 const socials = [
   { title: "Github Homepage", href: "https://github.com/mkhotamirais", Icon: SiGithub },
@@ -10,8 +11,16 @@ const socials = [
 ];
 
 export default function HeroLeft() {
+  const heroRef = useRef<HTMLDivElement | null>(null);
+  const v = useInView(heroRef);
+
   return (
-    <div className="flex flex-col justify-between text-center lg:text-left space-y-6 lg:space-y-4 py-4">
+    <motion.div
+      initial={{ opacity: 0, y: -100 }}
+      animate={{ opacity: v ? 1 : 0, y: v ? 0 : -100, transition: { duration: 0.5 } }}
+      ref={heroRef}
+      className="flex flex-col justify-between text-center lg:text-left space-y-6 lg:space-y-4 py-4"
+    >
       <div className="flex justify-center lg:justify-start">
         <div className="relative">
           <motion.img
@@ -59,6 +68,6 @@ export default function HeroLeft() {
           <a href="#contact">Contact me</a>
         </Button>
       </motion.div>
-    </div>
+    </motion.div>
   );
 }

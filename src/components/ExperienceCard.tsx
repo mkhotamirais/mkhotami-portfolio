@@ -1,4 +1,6 @@
 import { FaReact, FaMicrosoft, FaGlobe } from "react-icons/fa6";
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
 
 const experiences = [
   {
@@ -28,10 +30,32 @@ const experiences = [
 ];
 
 export default function ExperienceCard() {
+  const ref1 = useRef<HTMLDivElement | null>(null);
+  const ref2 = useRef<HTMLDivElement | null>(null);
+  const ref3 = useRef<HTMLDivElement | null>(null);
+
+  const v1 = useInView(ref1);
+  const v2 = useInView(ref2);
+  const v3 = useInView(ref3);
+
+  const refs = [ref1, ref2, ref3];
+  const vs = [v1, v2, v3];
+
   return (
     <div className="flex flex-col gap-4">
       {experiences.map(({ icon: Icon, title, by, place, year, description }, i) => (
-        <div key={i} className="flex gap-4">
+        <motion.div
+          ref={refs[i]}
+          key={i}
+          initial={{ y: 100, opacity: 0, scale: 0.7 }}
+          animate={{
+            y: vs[i] ? 0 : 100,
+            opacity: vs[i] ? 1 : 0,
+            scale: vs[i] ? 1 : 0.7,
+            // transition: { delay: i * 0.2 },
+          }}
+          className="flex gap-4"
+        >
           <div className="p-4 bg-woven h-fit rounded-full border shadow-lg hidden lg:block">
             <Icon className="text-primary size-6" />
           </div>
@@ -43,7 +67,7 @@ export default function ExperienceCard() {
             </h5>
             <p>{description}</p>
           </div>
-        </div>
+        </motion.div>
       ))}
     </div>
   );

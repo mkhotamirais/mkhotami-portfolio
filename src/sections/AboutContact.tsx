@@ -10,7 +10,10 @@ const contacts = [
 
 export default function AboutContact() {
   const contactMeRef = useRef<HTMLDivElement | null>(null);
+  const aboutThisWebRef = useRef<HTMLDivElement | null>(null);
+
   const v = useInView(contactMeRef);
+  const v2 = useInView(aboutThisWebRef);
 
   return (
     <section id="contact" className="py-16">
@@ -48,7 +51,14 @@ export default function AboutContact() {
             animate={{ y: 0, opacity: 1, transition: { duration: 0.3 } }}
             className="col-span-1 lg:col-span-3"
           >
-            <h2 className="mt-0">About this website</h2>
+            <motion.h2
+              ref={aboutThisWebRef}
+              initial={{ y: 100, opacity: 0 }}
+              animate={{ y: 0, opacity: v2 ? 1 : 0, x: v2 ? 0 : -100, transition: { duration: 0.3 } }}
+              className="mt-0"
+            >
+              About this website
+            </motion.h2>
             <p>
               This website is developed using React.js, leveraging Vite as the build tool for optimized performance.
               Iconography is implemented through React Icons, while styling is crafted with Tailwind CSS and ShadCN for

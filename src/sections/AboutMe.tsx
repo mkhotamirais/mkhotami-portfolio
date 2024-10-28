@@ -3,7 +3,10 @@ import { useRef } from "react";
 
 export default function AboutMe() {
   const aboutMeRef = useRef<HTMLDivElement | null>(null);
+  const aboutMeDetRef = useRef<HTMLDivElement | null>(null);
+
   const v = useInView(aboutMeRef);
+  const v2 = useInView(aboutMeDetRef);
 
   return (
     <section id="about" className="bg-woven min-h-[50vh] py-16">
@@ -16,7 +19,11 @@ export default function AboutMe() {
         >
           About Me
         </motion.h1>
-        <motion.div initial={{ y: 100, opacity: 0 }} animate={{ y: 0, opacity: 1, transition: { duration: 0.3 } }}>
+        <motion.div
+          ref={aboutMeDetRef}
+          initial={{ y: 100, opacity: 0 }}
+          animate={{ y: v2 ? 0 : 100, opacity: v2 ? 1 : 0, transition: { duration: 0.5 } }}
+        >
           <p>
             I Built <b>dynamic</b>, <b>responsive</b> web applications and created seamless user experiences with{" "}
             <b>efficient code.</b>

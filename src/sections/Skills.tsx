@@ -1,5 +1,5 @@
 import SkillsCard from "@/components/SkillsCard";
-import { skills } from "@/lib/skills";
+import { Skill, skills } from "@/lib/skills";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 
@@ -9,8 +9,28 @@ export default function Skills() {
   const fullstack = skills.filter((item) => item.type === "fullstack");
   const database = skills.filter((item) => item.type === "database");
 
+  const skillList = [
+    { skills: frontEnd, title: "Front-End" },
+    { skills: backEnd, title: "Back-End" },
+    { skills: fullstack, title: "Full-Stack" },
+    { skills: database, title: "Database" },
+  ];
+
   const skillRef = useRef<HTMLDivElement | null>(null);
   const v = useInView(skillRef);
+
+  const skillRef1 = useRef<HTMLDivElement | null>(null);
+  const skillRef2 = useRef<HTMLDivElement | null>(null);
+  const skillRef3 = useRef<HTMLDivElement | null>(null);
+  const skillRef4 = useRef<HTMLDivElement | null>(null);
+
+  const v1 = useInView(skillRef1);
+  const v2 = useInView(skillRef2);
+  const v3 = useInView(skillRef3);
+  const v4 = useInView(skillRef4);
+
+  const skillRefs = [skillRef1, skillRef2, skillRef3, skillRef4];
+  const vArr = [v1, v2, v3, v4];
 
   return (
     <section id="skills" className="min-h-[50vh] py-16">
@@ -29,13 +49,34 @@ export default function Skills() {
             animate={{ y: 0, opacity: 1, transition: { duration: 0.3 } }}
             className="grid grid-cols-1 lg:grid-cols-2 gap-8"
           >
-            <SkillsCard skills={frontEnd} title="Front-End" />
-            <SkillsCard skills={backEnd} title="Back-End" />
-            <SkillsCard skills={fullstack} title="Fullstack" />
-            <SkillsCard skills={database} title="Database" />
+            {skillList.map(({ skills, title }, i) => (
+              <motion.div
+                ref={skillRefs[i]}
+                // initial={{ opacity: 0 }}
+                // animate={
+                //   vArr[i]
+                //     ? { opacity: 1, y: 0, scale: 1, transition: { duration: 0.3 } }
+                //     : { opacity: 0, y: 100, scale: 0.8 }
+                // }
+                initial={{ opacity: 0, x: i % 2 === 0 ? -100 : 100 }} // start position based on index
+                animate={
+                  vArr[i]
+                    ? { opacity: 1, x: 0, transition: { duration: 0.5 } } // animate to center
+                    : { opacity: 0 }
+                }
+                key={i}
+                className="bg-woven h-full rounded-xl shadow-xl p-4"
+              >
+                <SkillsCard key={i} skills={skills} title={title} />
+              </motion.div>
+            ))}
           </motion.div>
         </article>
       </div>
     </section>
   );
 }
+
+export const SkillsItem = ({ skills, title }: { skills: Skill[]; title: string }) => {
+  return <SkillsCard skills={skills} title={title} />;
+};
