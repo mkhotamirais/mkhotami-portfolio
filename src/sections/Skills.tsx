@@ -33,7 +33,7 @@ export default function Skills() {
   const vArr = [v1, v2, v3, v4];
 
   return (
-    <section id="skills" className="min-h-[50vh] py-16">
+    <section id="skills" className="min-h-[50vh] py-16 w-full overflow-hidden">
       <div className="container *:font-barlowCondensed *:text-center">
         <article className="prose min-w-full">
           <motion.h1

@@ -26,14 +26,7 @@ export default function ItemsProjectHero({ item, i }: { item: Project; i: number
       <motion.div
         ref={refs[i]}
         initial={{ scale: 0.8, opacity: 0 }}
-        animate={
-          {
-            scale: vs[i] ? 1 : 0.8,
-            opacity: vs[i] ? 1 : 1,
-            transition: { ease: "linear" },
-          }
-          // transition: { delay: vs[i] ? 0 : 1 + 0.2 * i, duration: vs[i] ? 0.5 : 0.1 },
-        }
+        animate={{ scale: vs[i] ? 1 : 0.8, opacity: vs[i] ? 1 : 1, transition: { ease: "linear" } }}
       >
         <div className="relative group hover:scale-105 transition">
           <div className="scale-0 group-hover:scale-100 transition absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-black/50 *:text-white flex gap-4">

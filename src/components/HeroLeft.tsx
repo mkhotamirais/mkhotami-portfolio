@@ -1,8 +1,9 @@
 import { SiGithub, SiLinkedin, SiGmail } from "react-icons/si";
 import { Button } from "./ui/button";
-import HeroCvBtn from "./HeroCvBtn";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "./ui/dropdown-menu";
+import { FileDown, ArrowDown, Eye } from "lucide-react";
 
 const socials = [
   { title: "Github Homepage", href: "https://github.com/mkhotamirais", Icon: SiGithub },
@@ -58,16 +59,43 @@ export default function HeroLeft() {
           </a>
         ))}
       </motion.div>
-      <motion.div
-        initial={{ y: 200, opacity: 0 }}
-        animate={{ y: 0, opacity: 1, transition: { delay: 0.7, duration: 0.1 } }}
+      <div
+        // initial={{ y: 200, opacity: 0 }}
+        // animate={{ y: 0, opacity: 1, transition: { delay: 0.7, duration: 0.1 } }}
         className="flex flex-col lg:flex-row gap-4 items-center justify-center lg:justify-start"
       >
-        <HeroCvBtn />
+        <DropdownMenu>
+          <DropdownMenuTrigger asChild>
+            <Button className="w-44">
+              <FileDown className="mr-1" />
+              <div>Download CV</div>
+            </Button>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent className="w-44">
+            <DropdownMenuItem asChild className="flex justify-center">
+              <a
+                title="cv mkhotami"
+                href="https://docs.google.com/document/d/18R2NTNaj5GlKRRw_xSlzLVVWltXp4V6p3-f9dNR8aHY/export?format=pdf"
+              >
+                <ArrowDown className="size-4 mr-2" />
+                Download
+              </a>
+            </DropdownMenuItem>
+            <DropdownMenuItem className="flex justify-center">
+              <a
+                title="cv mkhotami"
+                href="https://docs.google.com/document/d/18R2NTNaj5GlKRRw_xSlzLVVWltXp4V6p3-f9dNR8aHY/preview"
+                className="flex items-center justify-center"
+              >
+                <Eye className="size-4 mr-2" /> Preview
+              </a>
+            </DropdownMenuItem>
+          </DropdownMenuContent>
+        </DropdownMenu>{" "}
         <Button variant={"outline"} asChild className="w-44">
           <a href="#contact">Contact me</a>
         </Button>
-      </motion.div>
+      </div>
     </motion.div>
   );
 }
