@@ -5,6 +5,11 @@ export type Skill = {
 };
 export const skills = [
   {
+    title: "Wordpress",
+    imgUrl: "https://www.vectorlogo.zone/logos/wordpress/wordpress-icon.svg",
+    type: "fullstack",
+  },
+  {
     title: "Framer",
     imgUrl: "https://www.vectorlogo.zone/logos/framer/framer-icon.svg",
     type: "front-end",

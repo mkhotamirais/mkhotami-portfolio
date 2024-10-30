@@ -21,7 +21,7 @@ const experiences = [
   },
   {
     title: "Ultimate Microsoft Office (Pre-Recorded Videos)",
-    by: "Eduwork",
+    by: "Udemy",
     place: "Bandung",
     year: "2021-2022",
     description: `I have completed the course material delivered in the form of pre-recorded videos from Udemy, covering Microsoft Office, particularly Microsoft Word and Excel, from basic to advanced levels.`,

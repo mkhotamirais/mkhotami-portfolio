@@ -8,6 +8,12 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    title: "Wordpress Tamionweb",
+    href: "https://tamionweb.my.id",
+    description: "Wordpress Tamionweb built with wordpress hosted on rumahweb",
+    tools: ["Wordpress", "elementor"],
+  },
+  {
     title: "Saikindo",
     href: "https://saikindo.co.id",
     description: `Saikindo company's website containing the company profile, products, and other services.`,
